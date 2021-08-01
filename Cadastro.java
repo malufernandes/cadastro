@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import repositório.Repositorio;
+import repositório.RepositorioPessoa;
+
 public class Cadastro {
 
 	private static final String pessoa = null;
@@ -12,11 +15,8 @@ public class Cadastro {
 		// TODO Auto-generated method stub
 
 		Scanner scanner = new Scanner(System.in);
-//		String [] nomes = new String[5]; 
-		List<pessoa> pessoas = new ArrayList<pessoa>();
-		List<String> nomes = new ArrayList<String>();
-		List<Integer> idades = new ArrayList<Integer>();
-
+		RepositorioPessoa repositorio = (RepositorioPessoa) new Repositorio();
+		
 		boolean desejaContinuar = false;
 
 		do {
@@ -29,6 +29,7 @@ public class Cadastro {
 			var Pessoa = new pessoa(nome, idade);
 			pessoas.add(Pessoa);
 
+			System.out.println();
 			scanner.nextLine();
 
 			System.out.println("Deseja continuar? (s) ou (n)");
