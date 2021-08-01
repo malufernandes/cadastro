@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import repositório.Repositorio;
+import repositório.ImplementacaoMemoria;
 import repositório.RepositorioPessoa;
 
 public class Cadastro {
@@ -12,11 +12,10 @@ public class Cadastro {
 	private static final String pessoa = null;
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 
 		Scanner scanner = new Scanner(System.in);
-		RepositorioPessoa repositorio = (RepositorioPessoa) new Repositorio();
-		
+		RepositorioPessoa repositorio = new ImplementacaoMemoria();
+
 		boolean desejaContinuar = false;
 
 		do {
@@ -27,7 +26,7 @@ public class Cadastro {
 			Integer idade = scanner.nextInt();
 
 			var Pessoa = new pessoa(nome, idade);
-			pessoas.add(Pessoa);
+			repositorio.salvar(Pessoa);
 
 			System.out.println();
 			scanner.nextLine();
@@ -44,8 +43,8 @@ public class Cadastro {
 			}
 
 		} while (desejaContinuar);
-
-		for (var Pessoa : pessoas) {
+		
+		for (var Pessoa : repositorio.buscarTodos()) {
 			System.out.println(Pessoa);
 		}
 
