@@ -1,4 +1,4 @@
-INTERFACE INICIAL
+//INTERFACE INICIAL
 
 package repositório;
 
